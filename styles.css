@@ -1,0 +1,20 @@
+/* font-family: 'Bungee', cursive; */
+
+body {
+    background-color: green;
+}
+
+#main-game {
+    display: flex;
+    justify-content: center;
+    font-family: 'Bungee', cursive;
+}
+
+footer {
+    font-family: 'Bungee', cursive;
+}
+
+a {
+    text-decoration: none;
+    color: orange;
+}
