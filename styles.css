@@ -1,17 +1,44 @@
 /* font-family: 'Bungee', cursive; */
 
 body {
-    background-color: green;
+    background-color: white;
 }
 
 #main-game {
     display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Bungee', cursive;
+}
+#scores{
+    display: flex;
+    flex-flow: row nowrap;
     justify-content: center;
     font-family: 'Bungee', cursive;
+}
+.scores{
+    margin: 30px;
+}
+#buttons{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+.btn {
+    margin: 15px;
+}
+button{
+    border: 0px;
+    background-color: white;
 }
 
 footer {
     font-family: 'Bungee', cursive;
+    font-size: 60%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 a {
