@@ -8,7 +8,7 @@ let computerScore = 0;
 
 function computerPlay() {
     let roundMath = Math.floor(Math.random() * 3) - 1;
-    let result;
+    let result = "";
 
     if (roundMath === 0) {
         return result = "Rock";
@@ -24,7 +24,7 @@ function singleRound(playerSelection, computerSelection) {
     let computer = computerSelection;
     let round = "";
 
-    
+
 
     if (player === "Rock" && computer === "Paper") {
         computerScore += 1;
@@ -44,7 +44,7 @@ function singleRound(playerSelection, computerSelection) {
     } else if (player === "Rock" && computer === "Scissors") {
         playerScore += 1;
         round = `You win! Rock beats Scissors!`;
-    } else {
+    } else if (player === computer) {
         round = "It's a tie!"
     }
 
@@ -54,20 +54,16 @@ function singleRound(playerSelection, computerSelection) {
 }
 
 function rockRnd() {
-    checkFinish();
-
     const log = document.querySelector('#log');
 
     const content = document.createElement('li');
     content.textContent = `Round N°${roundCounter}: ${singleRound("Rock", computerPlay())}`;
 
     log.appendChild(content);
-
     roundCounter++;
+    checkFinish();
 };
 function paperRnd() {
-    checkFinish();
-
     const log = document.querySelector('#log');
 
     const content = document.createElement('li');
@@ -75,10 +71,9 @@ function paperRnd() {
 
     log.appendChild(content);
     roundCounter++;
+    checkFinish();
 };
 function scissorsRnd() {
-    checkFinish();
-
     const log = document.querySelector('#log');
 
     const content = document.createElement('li');
@@ -86,53 +81,30 @@ function scissorsRnd() {
 
     log.appendChild(content);
     roundCounter++;
+    checkFinish();
 }
 
 const checkFinish = () => {
-    // if (playerScore < computerScore && roundCounter >= 5) {
-    //     roundCounter = 0;
 
-    //     const log = document.querySelector('#log');
-    //     log.innerHTML = "";
-    //     alert("Perdiste");
-    // } else if (playerScore > computerScore && roundCounter >= 5) {
-    //     roundCounter = 0;
-
-    //     const log = document.querySelector('#log');
-    //     log.innerHTML = "";
-    //     alert("Ganaste");
-    // }
-
-    // TENGO QUE ARREGLAR ESTO
-
-    if (roundCounter >= 5) {
-        if (playerScore > computerScore) {
-            alert("You've won!");
-            roundCounter = 1;
-            playerScore = 0;
-            computerScore = 0;
-            const log = document.querySelector('#log');
-            log.innerHTML = "";
-        } else if (playerScore < computerScore) {
-            alert("You've lost!");
-            roundCounter = 1;
-            playerScore = 0;
-            computerScore = 0;
-            const log = document.querySelector('#log');
-            log.innerHTML = "";
-        } else {
-            alert("No clear winner!");
-            roundCounter = 1;
-            playerScore = 0;
-            computerScore = 0;
-            const log = document.querySelector('#log');
-            log.innerHTML = "";
-        }
+    if (playerScore == 5) {
+        alert("You've won!");
+        roundCounter = 1;
+        playerScore = 0;
+        computerScore = 0;
+        const log = document.querySelector('#log');
+        log.innerHTML = "";
+    } else if (computerScore == 5) {
+        alert("You've lost!");
+        roundCounter = 1;
+        playerScore = 0;
+        computerScore = 0;
+        const log = document.querySelector('#log');
+        log.innerHTML = "";
     }
 
 }
 
-//TAMBIEN ESTO
+
 
 rockbtn.addEventListener("click", () => rockRnd());
 paperbtn.addEventListener("click", () => paperRnd());
